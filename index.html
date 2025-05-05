@@ -1,129 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Everyone Loves Norm</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Normbook</title>
   <style>
-    .fade-in-section {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  will-change: opacity, transform;
-}
-
-.fade-in-section.is-visible {
-  opacity: 1;
-  transform: none;
-}
-
     body {
       margin: 0;
+      background-color: #0a0a0a;
+      color: #f5f5f5;
       font-family: 'Courier New', Courier, monospace;
-      background-color: #0d0d0d;
-      color: #f2f2f2;
-      background-image: url('https://www.transparenttextures.com/patterns/dark-mosaic.png');
     }
 
     header {
-      background-color: #1a1a1a;
-      padding: 40px 20px;
       text-align: center;
-      border-bottom: 3px solid #b30000;
+      padding: 4rem 1rem 2rem;
     }
 
-    header h1 {
-      font-size: 3em;
-      margin: 0;
-      color: #ff3333;
-      letter-spacing: 2px;
+    h1 {
+      font-size: 3rem;
+      color: #e53935;
     }
 
-    header p {
-      font-size: 1.2em;
-      color: #ccc;
-      margin-top: 10px;
-    }
-
-    .content {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
-      line-height: 1.7;
-    }
-
-    .content h2 {
-      color: #ff3333;
+    p {
+      max-width: 600px;
+      margin: 1rem auto;
+      line-height: 1.6;
     }
 
     .quote {
       font-style: italic;
-      color: #999;
-      margin: 30px 0;
-      border-left: 4px solid #b30000;
-      padding-left: 15px;
+      margin-top: 2rem;
+      color: #ccc;
     }
 
     footer {
       text-align: center;
-      padding: 20px;
-      color: #666;
-      font-size: 0.9em;
-      border-top: 1px solid #222;
-      margin-top: 40px;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    /* Scroll fade-in effect */
+    .fade-in-section {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      will-change: opacity, transform;
+    }
+
+    .fade-in-section.is-visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* Book section styles */
+    .book-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 4rem 1rem;
+      background-color: #111;
+      border-top: 1px solid #333;
+      border-bottom: 1px solid #333;
+    }
+
+    .book-image {
+      width: 200px;
+      height: auto;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+      margin-bottom: 1.5rem;
+    }
+
+    .book-info {
+      text-align: center;
+    }
+
+    .book-info h2 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .book-price {
+      font-size: 1.5rem;
+      color: #f44336;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Everyone Loves Norm</h1>
-    <p>A Chilling Tale of a Man with No Emotion... and No Mercy</p>
+
+  <header class="fade-in-section">
+    <h1>The Normbook</h1>
+    <p>A guide to the things that hide in plain sight.</p>
+    <p class="quote">"The Norm sees you when you forget."</p>
   </header>
 
-  <div class="content">
-    <h2>About the Book</h2>
-    <p>
-      <strong>Norm</strong> is quiet. Norm is polite. Norm never smiles — not even when he's killing.
-      <br><br>
-      <em>Everyone Loves Norm</em> is a psychological horror novel that follows the life of a seemingly normal man who harbors a dark, violent secret. With a face as cold as stone and a heart colder still, Norm moves silently through a city that never suspects the truth.
-    </p>
-
-    <div class="quote">
-      “He didn’t scream. He didn’t smile. He just stared — and then he ended them.”
+  <!-- 👇 New Book Section with scroll animation -->
+  <section class="fade-in-section book-section">
+    <img src="https://via.placeholder.com/200x300?text=The+Normbook" alt="Book Cover" class="book-image">
+    <div class="book-info">
+      <h2>The Normbook</h2>
+      <p class="book-price">25 NZD</p>
     </div>
+  </section>
 
-    <h2>What Makes Norm Different?</h2>
-    <p>
-      Unlike your typical villain, Norm doesn't act out of rage. He isn't driven by revenge. There’s no motive. No emotion. Just the silence of death and the straight face that delivers it.
-    </p>
-
-    <h2>Can You Handle the Truth?</h2>
-    <p>
-      Step into the shadows of Norm’s mind — if you dare. Discover why everyone *thinks* they love Norm… until it's too late.
-    </p>
-  </div>
-
-  <footer>
-    &copy; 2025 Everyone Loves Norm. All rights reserved.
+  <footer class="fade-in-section">
+    <p>&copy; 2025 The Norm Collective. All rights reserved.</p>
   </footer>
+
+  <!-- 👇 Scroll effect script -->
   <script>
-  const sections = document.querySelectorAll('.fade-in-section');
+    const sections = document.querySelectorAll('.fade-in-section');
 
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        obs.unobserve(entry.target);
-      }
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1
     });
-  }, {
-    threshold: 0.1
-  });
 
-  sections.forEach(section => {
-    observer.observe(section);
-  });
-</script>
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
 
 </body>
 </html>
